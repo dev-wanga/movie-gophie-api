@@ -478,7 +478,7 @@ func proxyDownload(w http.ResponseWriter, r *http.Request, targetURL, filename s
 	defer resp.Body.Close()
 
 	w.Header().Set("Content-Type", "video/mp4")
-	w.Header().Set("Content-Disposition", fmt.Sprintf("attachment; filename="%s"", filename))
+	w.Header().Set("Content-Disposition", fmt.Sprintf("attachment; filename=\"%s\"", filename))
 	w.Header().Set("Access-Control-Allow-Origin", "*")
 	if cl := resp.Header.Get("Content-Length"); cl != "" {
 		w.Header().Set("Content-Length", cl)
